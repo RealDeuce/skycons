@@ -2,7 +2,7 @@
 	"name": "skycons",
 	"title": "Skycons",
 	"description": "Tweak icon/window locations like Sky wants",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"author": "Deuce",
 	"esmodules": ["./skycons.js"],
 	"styles": [],

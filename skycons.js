@@ -20,7 +20,14 @@ Application.prototype.minimize = async function() {
 
 	// Slide up window height
 	return new Promise((resolve) => {
-		window.animate({height: `${header[0].offsetHeight+1}px`}, 100, () => {
+		let target = {height: `${header[0].offsetHeight+1}px`};
+		if (this._skycons.minpos !== undefined) {
+			target.left = this._skycons.minpos.x;
+			target.top = this._skycons.minpos.y;
+			this.position.left = target.left;
+			this.position.top = target.top;
+		}
+		window.animate(target, 100, () => {
 			header.children().not(".window-title").not(".close").hide();
 			window.animate({width: MIN_WINDOW_WIDTH}, 100, () => {
 				window.addClass("minimized");
@@ -28,9 +35,6 @@ Application.prototype.minimize = async function() {
 				resolve(true);
 			});
 		});
-		if (this._skycons.minpos !== undefined) {
-			window.animate({left: this._skycons.minpos.x, top: this._skycons.minpos.y}, 250);
-		}
 	})
 };
 
@@ -57,7 +61,14 @@ Application.prototype.maximize = async function() {
 
 	// Expand window
 	return new Promise((resolve) => {
-		window.animate({width: this.position.width, height: this.position.height}, 100, () => {
+		let target = {width: this.position.width, height: this.position.height};
+		if (this._skycons.maxpos !== undefined) {
+			target.left = this._skycons.maxpos.x;
+			target.top = this._skycons.maxpos.y;
+			this.position.left = target.left;
+			this.position.top = target.top;
+		}
+		window.animate(target, 100, () => {
 		header.children().show();
 		content.slideDown(100, () => {
 			window.removeClass("minimized");
@@ -67,8 +78,5 @@ Application.prototype.maximize = async function() {
 				resolve(true);
 			});
 		});
-		if (this._skycons.maxpos !== undefined) {
-			window.animate({left: this._skycons.maxpos.x, top: this._skycons.maxpos.y}, 250);
-		}
 	})
 };
