@@ -9,6 +9,6 @@
 	"packs": [],
 	"manifest": "https://raw.githubusercontent.com/RealDeuce/skycons/master/module.json",
 	"download": "https://raw.githubusercontent.com/RealDeuce/skycons/master/skycons.zip",
-	"minimumCoreVersion": "0.4.4"
+	"minimumCoreVersion": "0.4.4",
 	"compatibleCoreVersion": "0.5.5"
 }
