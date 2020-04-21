@@ -6,6 +6,16 @@ Application.prototype.minimize = async function() {
 		this._skycons = {};
 	}
 	this._skycons.maxpos = {'x':this.position.left, 'y':this.position.top};
+	if (typeof(fpin_getState) !== 'undefined') {
+		const pins = game.settings.get('foundry-pin', 'pins');
+		let pin = fpin_getState(this.entity, pins);
+		if (pin) {
+			if (pin.skycons === undefined)
+				pin.skycons = {};
+			pin.skycons.maxpos = {'x':this.position.left, 'y':this.position.top};
+			game.settings.set('foundry-pin', 'pins', pins);
+		}
+	}
 
 	// Get content
 	let window = this.element,
@@ -28,7 +38,7 @@ Application.prototype.minimize = async function() {
 			this.position.top = target.top;
 		}
 		window.animate(target, 100, () => {
-			header.children().not(".window-title").not(".close").hide();
+			header.children().not(".window-title").not(".close").not(".pin").hide();
 			window.animate({width: MIN_WINDOW_WIDTH}, 100, () => {
 				window.addClass("minimized");
 				this._minimized = true;
@@ -58,6 +68,17 @@ Application.prototype.maximize = async function() {
 		this._skycons = {};
 	}
 	this._skycons.minpos = {'x':this.position.left, 'y':this.position.top};
+	if (typeof(fpin_getState) !== 'undefined') {
+		const pins = game.settings.get('foundry-pin', 'pins');
+		let pin = fpin_getState(this.entity, pins);
+		if (pin) {
+			if (pin.skycons === undefined)
+				pin.skycons = {};
+			pin.skycons.maxpos = {'x':this.position.left, 'y':this.position.top};
+			game.settings.set('foundry-pin', 'pins', pins);
+		}
+	}
+
 
 	// Expand window
 	return new Promise((resolve) => {
