@@ -1,8 +1,8 @@
 {
 	"name": "skycons",
 	"title": "Skycons",
-	"description": "Tweak icon/window locations like Sky wants",
-	"version": "0.0.6",
+	"description": "Save/restore window position whem minimizing/maximizing.",
+	"version": "0.0.7",
 	"author": "Deuce",
 	"esmodules": ["./skycons.js"],
 	"styles": [],
