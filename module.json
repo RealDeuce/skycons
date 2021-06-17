@@ -2,7 +2,7 @@
 	"name": "skycons",
 	"title": "Skycons",
 	"description": "Save/restore window position whem minimizing/maximizing.",
-	"version": "0.0.8",
+	"version": "0.0.9",
 	"author": "Deuce",
 	"esmodules": ["./skycons.js"],
 	"styles": [],
@@ -10,5 +10,5 @@
 	"manifest": "https://raw.githubusercontent.com/RealDeuce/skycons/master/module.json",
 	"download": "https://raw.githubusercontent.com/RealDeuce/skycons/master/skycons.zip",
 	"minimumCoreVersion": "0.4.4",
-	"compatibleCoreVersion": "0.7.5"
+	"compatibleCoreVersion": "0.8.7"
 }

@@ -1,5 +1,5 @@
 Application.prototype.minimize = async function() {
-	if ( !this.popOut || [true, null].includes(this._minimized) ) return;
+	if ( (this.rendered !== undefined && !this.rendered) || !this.popOut || [true, null].includes(this._minimized) ) return;
 	this._minimized = null;
 
 	if (this._skycons === undefined) {
@@ -56,7 +56,7 @@ Application.prototype.minimize = async function() {
    * @return {Promise}    A Promise which resolves to true once the maximization action has completed
    */
 Application.prototype.maximize = async function() {
-	if ( !this.popOut || [false, null].includes(this._minimized) ) return;
+	if ( (this.rendered !== undefined && !this.rendered) || !this.popOut || [false, null].includes(this._minimized) ) return;
 	this._minimized = null;
 
 	// Get content
